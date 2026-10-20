@@ -1,4 +1,13 @@
 # Terraform files
 .terraform/
 .terraform.lock.hcl
+terraform.tfstate
+
+# Secret file
+*.txt
+secrets.tfvars
+
+#Output state file for checks
+outputstate.output
+
 
