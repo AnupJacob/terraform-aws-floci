@@ -17,9 +17,9 @@ provider "aws" {
   skip_requesting_account_id  = true
 
   endpoints {
-    s3       = var.s3
-    dynamodb = var.dynamodb
-    ec2      = var.ec2
+    s3       = var.s3_endpoint
+    dynamodb = var.dynamodb_endpoint
+    ec2      = var.ec2_endpoint
   }
 }
 

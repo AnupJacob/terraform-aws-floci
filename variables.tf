@@ -12,14 +12,14 @@ variable "secret_key" {
   type = string
 }
 
-variable "s3" {
+variable "s3_endpoint" {
   type = string
 }
 
-variable "dynamodb" {
+variable "dynamodb_endpoint" {
   type = string
 }
 
-variable "ec2" {
+variable "ec2_endpoint" {
   type = string
 }

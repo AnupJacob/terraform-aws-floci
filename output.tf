@@ -10,7 +10,7 @@ output "private_instance_id_1" {
 
 output "public_instance_id_2" {
   description = "Public instance ID s"
-  value = module.my_public_instance[1].instance_id
+  value       = module.my_public_instance[1].instance_id
 }
 
 output "private_instance_id_2" {
