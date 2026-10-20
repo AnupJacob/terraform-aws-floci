@@ -1,4 +1,10 @@
 terraform {
+  cloud {
+    organization = "Application_Test"
+    workspaces {
+      name = "terraform-aws-floci"
+    }
+  }
   required_providers {
     aws = {
       source  = "hashicorp/aws"
