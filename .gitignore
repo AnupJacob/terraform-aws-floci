@@ -1,8 +1,10 @@
 # Terraform files
 .terraform/
 .terraform.lock.hcl
+terraform.tfstate
 
 # Secret file
 *.txt
-secrets.txt
+secrets.tfvars
+
 
