@@ -41,7 +41,6 @@ module "my_public_instance" {
 
 module "my_private_instance" {
   source = "./modules"
-
   count = 2
 }
 
