@@ -21,6 +21,8 @@ provider "aws" {
   skip_credentials_validation = true
   skip_metadata_api_check     = true
   skip_requesting_account_id  = true
+  s3_use_path_style           = true
+
 
   endpoints {
     s3       = var.s3_endpoint
@@ -30,18 +32,21 @@ provider "aws" {
 }
 
 # Create a sample S3 Bucket locally for testing
-module "my_s3_bucket1" {
-  source = "./modules"
+module "my_s3_bucket" {
+  source      = "./modules"
+  bucket_name = "my-s3-bucket-standalone"
 }
 
 module "my_public_instance" {
-  source = "./modules"
-  count  = 2
+  source      = "./modules"
+  count       = 2
+  bucket_name = "my-s3-bucket-public-${count.index}"
 }
 
 module "my_private_instance" {
-  source = "./modules"
-
-  count = 2
+  source      = "./modules"
+  count       = 2
+  bucket_name = "my-s3-bucket-private-${count.index}"
 }
+
 
