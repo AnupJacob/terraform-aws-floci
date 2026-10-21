@@ -5,21 +5,29 @@ variable "region" {
 }
 
 variable "access_key" {
-  type = string
+  type        = string
+  description = "Access key variable"
+
 }
 
 variable "secret_key" {
-  type = string
+  type        = string
+  description = "Secret key variable"
 }
 
 variable "s3_endpoint" {
-  type = string
+  type        = string
+  description = "S3 endpoint url"
 }
 
 variable "dynamodb_endpoint" {
-  type = string
+  type        = string
+  description = "DynamoDB endpoint url"
+
 }
 
 variable "ec2_endpoint" {
-  type = string
+  type        = string
+  description = "EC2 endpoint url"
+
 }
