@@ -6,12 +6,17 @@ variable "public_instance_type" {
 
 variable "private_instance_type" {
   type = string
-  default = "r9g.medium"
+  default = "t3.micro"
   description = "Type of instances for private EC2"
 }
 
 variable "s3_bucket_name" {
-  default = "my-sandbox-bucket"
+  default = "my-s3-bucket"
   type = string
   description = "Name of the s3 bucket"
+}
+
+variable "bucket_name" {
+  type        = string
+  description = "The name of the S3 bucket"
 }
