@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "my_s3_bucket" {
-  bucket = var.bucket_name
+  bucket = "${var.environment}-${var.bucket_name}"
 }
 
 
@@ -17,9 +17,21 @@ data "aws_ami" "ubuntu" {
 resource "aws_instance" "my_public_instance" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = var.public_instance_type
+  count = var.instance_count
+  tags = {
+    environment=var.environment
+    name = "${var.environment}-public-instance"
+    infrastructure=var.Infrastructure
+  }
 }
 
 resource "aws_instance" "my_private_instance" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = var.private_instance_type
+  count = var.instance_count
+    tags = {
+    environment=var.environment
+    name = "${var.environment}-private-instance"
+    infrastructure=var.Infrastructure
+  }
 }
