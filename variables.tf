@@ -29,5 +29,15 @@ variable "dynamodb_endpoint" {
 variable "ec2_endpoint" {
   type        = string
   description = "EC2 endpoint url"
+}
 
+variable "environments" {
+  type    = list(string)
+  default = ["dev", "staging", "prod"]
+}
+
+variable "instance_count" {
+  type        = number
+  description = "Number of instances for this environment"
+  default     = 2 # <--- This makes the argument optional!
 }

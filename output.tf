@@ -1,19 +1,23 @@
-output "public_instance_id_1" {
-  description = "Public instance ID 1"
-  value       = module.my_public_instance[0].my_public_instance_id
+output "private_instance_ids_dev" {
+  value = module.my_private_instance["dev"].my_private_instance_id
 }
 
-output "private_instance_id_1" {
-  description = "private instance ID 1"
-  value       = module.my_private_instance[0].my_private_instance_id
+output "public_instance_ids_dev" {
+  value = module.my_public_instance["dev"].my_public_instance_id
 }
 
-output "public_instance_id_2" {
-  description = "Public instance ID 2"
-  value       = module.my_public_instance[1].my_public_instance_id
+output "private_instance_ids_staging" {
+  value = module.my_private_instance["staging"].my_private_instance_id
 }
 
-output "private_instance_id_2" {
-  description = "private instance ID 2"
-  value       = module.my_private_instance[1].my_private_instance_id
+output "public_instance_ids_staging" {
+  value = module.my_public_instance["staging"].my_public_instance_id
+}
+
+output "private_instance_ids_prod" {
+  value = module.my_private_instance["prod"].my_private_instance_id
+}
+
+output "public_instance_ids_prod" {
+  value = module.my_public_instance["prod"].my_public_instance_id
 }
