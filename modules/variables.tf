@@ -15,12 +15,7 @@ variable "bucket_name" {
   description = "The name of the S3 bucket"
 }
 
-variable "environment" {
-  type = string
-  description = "Environment where the application is deployed to"
-}
-
-variable "Infrastructure" {
+variable "infrastructure" {
   default = "Terraform"
   type= string
   description = "Specification for identification if made via terraform config no not"
@@ -29,4 +24,16 @@ variable "Infrastructure" {
 variable "instance_count" {
   type = number
   description = "Number of instances for each environment"
+}
+
+variable "environments" {
+  type    = list(string)
+  description = "Environment where the application is deployed to"
+
+}
+
+variable "regions" {
+  default     = ["eu-west-1", "eu-west-2"]
+  type        = list(string)
+  description = "Region of Infrastructure"
 }

@@ -1,4 +1,3 @@
-# Provider details which can be reused using symlink
 terraform {
   cloud {
     organization = "Application_Test"
@@ -16,7 +15,7 @@ terraform {
 
 # Redirect all standard AWS requests to your local Floci container
 provider "aws" {
-  region                      = var.region
+  region                      = "eu-west-1"
   access_key                  = var.access_key # Credentials are not checked locally
   secret_key                  = var.secret_key
   skip_credentials_validation = true

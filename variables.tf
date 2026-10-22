@@ -1,6 +1,6 @@
-variable "region" {
-  default     = "eu-west-1"
-  type        = string
+variable "regions" {
+  default     = ["eu-west-1", "eu-west-2"]
+  type        = list(string)
   description = "Region of Infrastructure"
 }
 
@@ -32,8 +32,8 @@ variable "ec2_endpoint" {
 }
 
 variable "environments" {
-  type    = list(string)
-  default = ["dev", "staging", "prod"]
+  type        = string
+  description = "Environments to be deployed to"
 }
 
 variable "instance_count" {
