@@ -1,4 +1,4 @@
-module "dev_infrastructure" {
+module "prod_infrastructure" {
   source      = "../../modules"
   environment = "Production"
   bucket_name = "my-${var.prod_env}app-bucket"
