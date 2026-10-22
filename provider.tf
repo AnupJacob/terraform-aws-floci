@@ -2,7 +2,7 @@ terraform {
   cloud {
     organization = "Application_Test"
     workspaces {
-      name = "terraform-aws-floci"
+      name = "terraform-aws-floci-Development"
     }
   }
   required_providers {
