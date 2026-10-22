@@ -1,6 +1,6 @@
 module "dev_infrastructure" {
-  source      = "../../modules"
-  environment = "dev"
+  source         = "../../modules"
+  environments    = var.environments
   instance_count = var.instance_count
-  bucket_name = "my-${var.dev_env}app-bucket"
+  bucket_name    = "my-${var.s3_environment}-app-bucket"
 }

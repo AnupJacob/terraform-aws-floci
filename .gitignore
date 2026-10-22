@@ -8,6 +8,6 @@ terraform.tfstate
 secrets.tfvars
 
 #Output state file for checks
-outputstate.output
+*outputstate.output
 
 
