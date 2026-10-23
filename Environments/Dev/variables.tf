@@ -42,3 +42,8 @@ variable "ec2_endpoint" {
   type        = string
   description = "EC2 endpoint url"
 }
+
+variable "region" {
+  default = "eu-west-1"
+  type    = string
+}
