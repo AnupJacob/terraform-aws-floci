@@ -1,11 +1,18 @@
 variable "environment" {
-  type = string
-  default = "staging"
+  type        = string
+  default     = "staging"
   description = "Staging environment where the application is deployed to"
 }
 
+variable "environments" {
+  type        = list(string)
+  default     = ["staging"]
+  description = "Development environment where the application is deployed to"
+}
+
+
 variable "instance_count" {
-  default = 2
+  default     = 2
   type        = number
   description = "Number of instances for the staging environment"
 }
@@ -13,7 +20,6 @@ variable "instance_count" {
 variable "access_key" {
   type        = string
   description = "Access key variable"
-
 }
 
 variable "secret_key" {
@@ -35,4 +41,21 @@ variable "dynamodb_endpoint" {
 variable "ec2_endpoint" {
   type        = string
   description = "EC2 endpoint url"
+}
+
+variable "region" {
+  default = "eu-west-1"
+  type    = string
+}
+
+variable "s3_environment" {
+  type        = string
+  default     = "staging"
+  description = "S3 bucket environment"
+}
+
+variable "bucket_name" {
+  type        = string
+  default     = "staging-s3-bucket"
+  description = "The name of the S3 bucket"
 }
