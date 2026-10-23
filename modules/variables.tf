@@ -37,3 +37,8 @@ variable "regions" {
   type        = list(string)
   description = "Region of Infrastructure"
 }
+
+variable "vpc_cidr" {
+  type        = string
+  description = "The main base CIDR block for this specific environment's VPC"
+}
