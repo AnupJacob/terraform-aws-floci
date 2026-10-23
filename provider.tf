@@ -2,8 +2,8 @@ terraform {
   cloud {
     organization = "Application_Test"
     workspaces {
-      project = "Development-AWS-Floci"
-      name    = "terraform-aws-floci-Development"
+      project = "Anups-main-AWS-Floci"
+      name    = "terraform-aws-floci-main"
     }
   }
   required_providers {
@@ -16,7 +16,7 @@ terraform {
 
 # Redirect all standard AWS requests to your local Floci container
 provider "aws" {
-  region                      = "eu-west-1"
+  region                      = var.region
   access_key                  = var.access_key # Credentials are not checked locally
   secret_key                  = var.secret_key
   skip_credentials_validation = true

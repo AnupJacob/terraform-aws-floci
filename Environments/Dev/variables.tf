@@ -42,3 +42,14 @@ variable "ec2_endpoint" {
   type        = string
   description = "EC2 endpoint url"
 }
+
+variable "region" {
+  default = "eu-west-1"
+  type    = string
+}
+
+variable "bucket_name" {
+  type        = string
+  default     = "staging-s3-bucket"
+  description = "The name of the S3 bucket"
+}

@@ -1,11 +1,11 @@
 variable "environment" {
-  type = string
-  default = "production"
+  type        = string
+  default     = "production"
   description = "Production environment where the application is deployed to"
 }
 
 variable "instance_count" {
-  default = 3
+  default     = 3
   type        = number
   description = "Number of instances for the Production environment"
 }
@@ -35,4 +35,26 @@ variable "dynamodb_endpoint" {
 variable "ec2_endpoint" {
   type        = string
   description = "EC2 endpoint url"
+}
+
+variable "region" {
+  default = "eu-west-1"
+  type    = string
+}
+
+variable "bucket_name" {
+  type        = string
+  default     = "production-s3-bucket"
+  description = "The name of the S3 bucket"
+}
+
+variable "s3_environment" {
+  type        = string
+  default     = "production"
+  description = "S3 bucket environment"
+}
+
+variable "environments" {
+  default = ["production"]
+  type    = list(string)
 }

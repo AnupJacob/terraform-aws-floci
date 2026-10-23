@@ -7,7 +7,6 @@ variable "regions" {
 variable "access_key" {
   type        = string
   description = "Access key variable"
-
 }
 
 variable "secret_key" {
@@ -23,7 +22,6 @@ variable "s3_endpoint" {
 variable "dynamodb_endpoint" {
   type        = string
   description = "DynamoDB endpoint url"
-
 }
 
 variable "ec2_endpoint" {
@@ -32,12 +30,23 @@ variable "ec2_endpoint" {
 }
 
 variable "environments" {
-  type        = string
+  type        = list(string)
   description = "Environments to be deployed to"
+  default     = ["development", "staging", "prod"]
 }
 
 variable "instance_count" {
   type        = number
   description = "Number of instances for this environment"
   default     = 2 # <--- This makes the argument optional!
+}
+
+variable "s3_environment" {
+  default = "development"
+  type    = string
+}
+
+variable "region" {
+  default = "eu-west-1"
+  type    = string
 }
