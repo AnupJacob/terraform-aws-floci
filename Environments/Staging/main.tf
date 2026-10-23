@@ -7,6 +7,5 @@ module "staging_infrastructure" {
 }
 
 resource "aws_s3_bucket" "my_s3_bucket" {
-  # No for_each loop here!
   bucket = "${var.environment}-${var.bucket_name}"
 }
