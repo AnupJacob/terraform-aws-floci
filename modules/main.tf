@@ -132,7 +132,7 @@ resource "aws_instance" "my_public_instance" {
   instance_type          = var.public_instance_type
   for_each               = toset(var.regions)
   subnet_id              = aws_subnet.my_floci_private_subnet[each.key].id
-  vpc_security_group_ids = aws_security_group.public_security_group[each.key]
+  vpc_security_group_ids = [aws_security_group.public_security_group[each.key].id]
   key_name               = aws_key_pair.public_key_pair.key_name
   tags = {
     infrastructure = var.infrastructure

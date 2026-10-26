@@ -5,5 +5,5 @@ output "my_private_instance_id" {
 
 output "my_public_instance_id" {
   description = "Instance ID of my public instance created"
-  value       = aws_instance.my_public_instance[*].id
+  value = [for instance in aws_instance.my_public_instance : instance.id]
 }
