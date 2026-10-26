@@ -50,3 +50,12 @@ variable "region" {
   default = "eu-west-1"
   type    = string
 }
+
+variable "environment_cidrs" {
+  type = map(string)
+  default = {
+    dev     = "10.1.0.0/16"
+    staging = "10.2.0.0/16"
+    prod    = "10.3.0.0/16"
+  }
+}
