@@ -10,4 +10,5 @@ secrets.tfvars
 #Output state file for checks
 *outputstate.output
 
-
+#private keys for SSH connections
+*.pem

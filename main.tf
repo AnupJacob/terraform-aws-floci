@@ -27,4 +27,3 @@ module "my_private_instance" {
   environments = [each.value.env]
   bucket_name  = "my-s3-bucket-private"
 }
-
