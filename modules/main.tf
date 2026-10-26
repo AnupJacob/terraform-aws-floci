@@ -111,29 +111,13 @@ resource "aws_security_group" "public_security_group" {
   }
 }
 
-resource "tls_private_key" "internet_private_key" {
-  algorithm = "RSA"
-  rsa_bits  = 4096
-}
-
-resource "local_file" "ssh_key" {
-  filename        = "${path.module}/internet_private_key.pem"
-  content         = tls_private_key.internet_private_key.private_key_pem
-  file_permission = "0400" # Safe read-only permissions for SSH keys
-}
-
-resource "aws_key_pair" "public_key_pair" {
-  key_name   = "internet_private_key"
-  public_key = tls_private_key.internet_private_key.private_key_pem
-}
-
 resource "aws_instance" "my_public_instance" {
   ami                    = data.aws_ami.ubuntu.id
   instance_type          = var.public_instance_type
   for_each               = toset(var.regions)
   subnet_id              = aws_subnet.my_floci_private_subnet[each.key].id
   vpc_security_group_ids = [aws_security_group.public_security_group[each.key].id]
-  key_name               = aws_key_pair.public_key_pair.key_name
+  key_name               = var.ssh_key_name
   tags = {
     infrastructure = var.infrastructure
   }

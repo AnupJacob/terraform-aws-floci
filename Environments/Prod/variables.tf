@@ -58,3 +58,4 @@ variable "environments" {
   default = ["production"]
   type    = list(string)
 }
+

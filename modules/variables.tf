@@ -42,3 +42,8 @@ variable "vpc_cidr" {
   type        = string
   description = "The main base CIDR block for this specific environment's VPC"
 }
+
+variable "ssh_key_name" {
+  type        = string
+  description = "The name of the SSH key pair passed from the environment level"
+}
