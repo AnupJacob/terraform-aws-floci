@@ -131,3 +131,44 @@ resource "aws_instance" "my_private_instance" {
     infrastructure = var.infrastructure
   }
 }
+
+resource "aws_eip" "nat_eip" {
+  for_each = toset(var.regions)
+  domain   = "vpc"
+
+  tags = {
+    Name = "${var.environments[0]}-nat-eip-${each.key}"
+  }
+}
+
+resource "aws_nat_gateway" "my_app_natgateway" {
+  for_each      = toset(var.regions)
+  allocation_id = aws_eip.nat_eip[each.key].id
+  subnet_id     = aws_subnet.my_floci_public_subnet[each.key].id
+
+  tags = {
+    Name = "${var.environments[0]}-nat-gateway-${each.key}"
+  }
+  depends_on = [aws_internet_gateway.floci_igw]
+}
+
+resource "aws_route_table" "private_connection" {
+  for_each = toset(var.regions)
+  vpc_id   = aws_vpc.my_floci_vpc[each.key].id
+
+  route {
+    cidr_block     = "0.0.0.0/0"
+    nat_gateway_id = aws_nat_gateway.my_app_natgateway[each.key].id
+  }
+
+  tags = {
+    Name           = "${var.environments[0]}-private-route-table-${each.key}"
+    infrastructure = var.infrastructure
+  }
+}
+
+resource "aws_route_table_association" "private_connection_association" {
+  for_each       = toset(var.regions)
+  subnet_id      = aws_subnet.my_floci_private_subnet[each.key].id
+  route_table_id = aws_route_table.private_connection[each.key].id
+}
