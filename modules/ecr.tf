@@ -1,5 +1,5 @@
 resource "aws_ecr_repository" "anup_ecr_repo" {
-  name                 = "${var.environments[0]}-anup's-my-app"
+  name                 = "${var.environments[0]}-anups-app"
   image_tag_mutability = "MUTABLE"
 
   image_scanning_configuration {
