@@ -5,3 +5,7 @@ output "private_instance_ids_staging" {
 output "public_instance_ids_staging" {
   value = module.staging_infrastructure.my_public_instance_id
 }
+
+output "ecr_staging_repository_name" {
+  value = module.staging_infrastructure.ecr_repository_url
+}

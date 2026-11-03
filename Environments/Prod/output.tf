@@ -5,3 +5,7 @@ output "private_instance_ids_prod" {
 output "public_instance_ids_prod" {
   value = module.prod_infrastructure.my_public_instance_id
 }
+
+output "ecr_prod_repository_name" {
+  value = module.prod_infrastructure.ecr_repository_url
+}
