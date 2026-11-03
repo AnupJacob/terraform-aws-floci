@@ -43,6 +43,11 @@ variable "ec2_endpoint" {
   description = "EC2 endpoint url"
 }
 
+variable "ecr_endpoint" {
+  type        = string
+  description = "ECR endpoint url"
+}
+
 variable "region" {
   default = "eu-west-1"
   type    = string

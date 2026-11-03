@@ -59,3 +59,8 @@ variable "environment_cidrs" {
     prod    = "10.3.0.0/16"
   }
 }
+
+variable "ecr_endpoint" {
+  type        = string
+  description = "ECR endpoint url"
+}

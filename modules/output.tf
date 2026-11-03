@@ -7,3 +7,8 @@ output "my_public_instance_id" {
   description = "Instance ID of my public instance created"
   value       = [for instance in aws_instance.my_public_instance : instance.id]
 }
+
+output "ecr_repository_url" {
+  description = "The URL of the private container registry"
+  value       = aws_ecr_repository.anup_ecr_repo.repository_url
+}
