@@ -13,7 +13,6 @@ variable "instance_count" {
 variable "access_key" {
   type        = string
   description = "Access key variable"
-
 }
 
 variable "secret_key" {
@@ -29,7 +28,11 @@ variable "s3_endpoint" {
 variable "dynamodb_endpoint" {
   type        = string
   description = "DynamoDB endpoint url"
+}
 
+variable "rds_endpoint" {
+  type        = string
+  description = "RDS endpoint url"
 }
 
 variable "ec2_endpoint" {
@@ -64,3 +67,12 @@ variable "environments" {
   type    = list(string)
 }
 
+variable "master_user" {
+  type        = string
+  description = "master username for RDS cluster"
+}
+
+variable "master_password" {
+  type        = string
+  description = "master password for RDS cluster"
+}

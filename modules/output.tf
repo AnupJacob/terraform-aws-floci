@@ -12,3 +12,8 @@ output "ecr_repository_url" {
   description = "The URL of the private container registry"
   value       = aws_ecr_repository.anup_ecr_repo.repository_url
 }
+
+output "postgres_primary_endpoint" {
+  description = "Send WRITE/transaction workloads to this endpoint"
+  value       = { for k, v in aws_db_instance.aws_floci_postgres : k => v.endpoint }
+}

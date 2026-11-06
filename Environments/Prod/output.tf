@@ -9,3 +9,7 @@ output "public_instance_ids_prod" {
 output "ecr_prod_repository_name" {
   value = module.prod_infrastructure.ecr_repository_url
 }
+
+output "postgres_primary_endpoint" {
+  value = module.prod_infrastructure.postgres_primary_endpoint
+}
