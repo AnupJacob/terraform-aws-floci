@@ -9,3 +9,7 @@ output "public_instance_ids_staging" {
 output "ecr_staging_repository_name" {
   value = module.staging_infrastructure.ecr_repository_url
 }
+
+output "postgres_primary_endpoint" {
+  value = module.staging_infrastructure.postgres_primary_endpoint
+}
