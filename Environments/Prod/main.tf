@@ -1,10 +1,12 @@
 module "prod_infrastructure" {
-  source         = "../../modules"
-  vpc_cidr       = "10.2.0.0/16"
-  environments   = var.environments
-  bucket_name    = "my-${var.environment}app-bucket"
-  instance_count = var.instance_count
-  ssh_key_name   = aws_key_pair.public_key_pair_prod.key_name
+  source          = "../../modules"
+  vpc_cidr        = "10.2.0.0/16"
+  environments    = var.environments
+  bucket_name     = "my-${var.environment}app-bucket"
+  instance_count  = var.instance_count
+  ssh_key_name    = aws_key_pair.public_key_pair_prod.key_name
+  master_password = var.master_password
+  master_user     = var.master_user
 }
 
 resource "aws_s3_bucket" "my_s3_bucket" {
