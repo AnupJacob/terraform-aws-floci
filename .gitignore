@@ -14,7 +14,7 @@ secrets.tfvars
 *.pem
 
 #.github files
-../.github/
+.github/
 
 #.DSstore files
-../Environments/.DS_Store
+Environments/.DS_Store
