@@ -11,6 +11,8 @@ resource "aws_subnet" "my_floci_private_subnet" {
   vpc_id     = aws_vpc.my_floci_vpc[each.key].id
   cidr_block = cidrsubnet(var.vpc_cidr, 8, (index(var.regions, each.key) * 2) + 1)
 
+  availability_zone = each.key == "eu-west-1" ? "eu-west-1b" : "eu-west-1c"
+
   lifecycle {
     create_before_destroy = false # Overrides defaults, forcing deletion first
   }
@@ -26,6 +28,8 @@ resource "aws_subnet" "my_floci_public_subnet" {
   for_each   = toset(var.regions)
   vpc_id     = aws_vpc.my_floci_vpc[each.key].id
   cidr_block = cidrsubnet(var.vpc_cidr, 8, (index(var.regions, each.key) * 2) + 2)
+
+  availability_zone = "eu-west-1a"
 
   lifecycle {
     create_before_destroy = false # Overrides defaults, forcing deletion first

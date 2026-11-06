@@ -47,3 +47,13 @@ variable "ssh_key_name" {
   type        = string
   description = "The name of the SSH key pair passed from the environment level"
 }
+
+variable "master_user" {
+  type        = string
+  description = "master username for RDS cluster"
+}
+
+variable "master_password" {
+  type        = string
+  description = "master password for RDS cluster"
+}
