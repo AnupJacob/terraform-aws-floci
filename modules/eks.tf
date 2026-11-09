@@ -3,7 +3,7 @@ module "eks" {
   version = "~> 20.0"
 
   for_each     = toset(var.regions)
-  cluster_name = "${var.environments}-eks-cluster-${each.key}"
+  cluster_name = "${substr(var.environments[0], 0, 3)}-eks-${each.key}"
 
   cluster_version = "1.31"
 
@@ -31,13 +31,13 @@ module "eks" {
       subnet_ids = [aws_subnet.my_floci_private_subnet[each.key].id]
 
       tags = {
-        Environment = var.environments
+        Environment = var.environments[0]
       }
     }
   }
 
   tags = {
     Infrastructure = var.infrastructure
-    Environment    = var.environments
+    Environment    = var.environments[0]
   }
 }
