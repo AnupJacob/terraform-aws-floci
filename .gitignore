@@ -17,4 +17,4 @@ secrets.tfvars
 .github/
 
 #.DSstore files
-Environments/.DS_Store
+*.DS_Store
