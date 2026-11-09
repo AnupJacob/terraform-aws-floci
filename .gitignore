@@ -17,4 +17,7 @@ secrets.tfvars
 .github/
 
 #.DSstore files
-Environments/.DS_Store
+*.DS_Store
+
+# Script files used for testing and flushing kubernetes resources
+EKS_Cluster_Flush.sh

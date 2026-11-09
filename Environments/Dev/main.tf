@@ -29,3 +29,21 @@ resource "aws_key_pair" "public_key_pair_dev" {
   public_key = tls_private_key.internet_private_key_dev.private_key_pem
 }
 
+/*
+module "eks" {
+  source = "../../modules"
+
+  # Pass your variables down into the module block
+  regions        = [var.region]
+  environments   = var.environments
+  infrastructure = "terraform-aws-floci-development"
+
+  ssh_key_name    = var.ssh_key
+  master_user     = var.master_user
+  master_password = var.master_password
+  bucket_name     = var.bucket_name
+
+  instance_count = var.instance_count
+  vpc_cidr       = var.vpc_cidr
+}
+*/

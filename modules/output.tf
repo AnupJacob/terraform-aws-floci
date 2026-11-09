@@ -17,3 +17,19 @@ output "postgres_primary_endpoint" {
   description = "Send WRITE/transaction workloads to this endpoint"
   value       = { for k, v in aws_db_instance.aws_floci_postgres : k => v.endpoint }
 }
+
+output "eks_cluster_endpoint" {
+  description = "The endpoint URL for your Kubernetes API control plane"
+  value       = { for k, v in module.eks : k => v.cluster_endpoint }
+}
+
+output "eks_cluster_name" {
+  description = "The name of the EKS cluster"
+  value       = { for k, v in module.eks : k => v.cluster_name }
+}
+
+
+output "eks_cluster_certificate_authority_data" {
+  description = "The base64 encoded certificate data required to communicate with the cluster"
+  value       = { for k, v in module.eks : k => v.cluster_certificate_authority_data }
+}

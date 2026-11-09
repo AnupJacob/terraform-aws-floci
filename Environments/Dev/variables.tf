@@ -65,10 +65,21 @@ variable "bucket_name" {
 
 variable "master_user" {
   type        = string
-  description = "master username for RDS cluster"
+  description = "master username for RDS and EKS cluster"
 }
 
 variable "master_password" {
   type        = string
-  description = "master password for RDS cluster"
+  description = "master password for RDS and EKS cluster"
+}
+
+variable "ssh_key" {
+  type        = string
+  description = "SSH Key for RDS and EKS cluster"
+}
+
+variable "vpc_cidr" {
+  type        = string
+  default     = "10.0.0.0/16"
+  description = "VPC CIDR for EKS"
 }
