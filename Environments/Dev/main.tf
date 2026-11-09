@@ -29,6 +29,7 @@ resource "aws_key_pair" "public_key_pair_dev" {
   public_key = tls_private_key.internet_private_key_dev.private_key_pem
 }
 
+/*
 module "eks" {
   source = "../../modules"
 
@@ -45,3 +46,4 @@ module "eks" {
   instance_count = var.instance_count
   vpc_cidr       = var.vpc_cidr
 }
+*/

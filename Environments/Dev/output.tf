@@ -15,5 +15,5 @@ output "postgres_primary_endpoint" {
 }
 
 output "eks_cluster_endpoint" {
-  value = module.eks.eks_cluster_endpoint
+  value = module.dev_infrastructure.eks_cluster_endpoint
 }

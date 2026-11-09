@@ -25,12 +25,16 @@ provider "aws" {
   s3_use_path_style           = true
 
   endpoints {
-    s3       = var.s3_endpoint
-    dynamodb = var.dynamodb_endpoint
-    ec2      = var.ec2_endpoint
-    ecr      = var.ecr_endpoint
-    rds      = var.rds_endpoint
-    sts      = var.ec2_endpoint
+    s3             = var.s3_endpoint
+    dynamodb       = var.dynamodb_endpoint
+    ec2            = var.ec2_endpoint
+    ecr            = var.ecr_endpoint
+    rds            = var.rds_endpoint
+    sts            = var.ec2_endpoint
+    iam            = var.ec2_endpoint
+    cloudwatchlogs = var.ec2_endpoint
+    kms            = var.ec2_endpoint
+    eks            = var.ec2_endpoint
   }
 }
 
