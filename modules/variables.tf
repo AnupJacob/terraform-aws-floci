@@ -57,3 +57,9 @@ variable "master_password" {
   type        = string
   description = "master password for RDS cluster"
 }
+
+variable "eks_environment_short" {
+  type        = string
+  default     = "stag"
+  description = "Staging environment short string for EKS cluster for length limit fix"
+}
