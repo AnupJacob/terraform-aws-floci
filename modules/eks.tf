@@ -3,7 +3,7 @@ module "eks" {
   version = "~> 20.0"
 
   for_each     = toset(var.regions)
-  cluster_name = "${substr(var.environments[0], 0, 3)}-eks-${each.key}"
+  cluster_name = "${var.eks_environment_short}-eks-${each.key}"
 
   cluster_version = "1.31"
 

@@ -13,3 +13,7 @@ output "ecr_staging_repository_name" {
 output "postgres_primary_endpoint" {
   value = module.staging_infrastructure.postgres_primary_endpoint
 }
+
+output "eks_cluster_endpoint" {
+  value = module.staging_infrastructure.eks_cluster_endpoint
+}
