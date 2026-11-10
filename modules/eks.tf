@@ -12,7 +12,7 @@ module "eks" {
   subnet_ids = [aws_subnet.my_floci_private_subnet[each.key].id]
 
   # SECURITY BEST PRACTICE: Enables cryptographic OpenID trust mappings (IRSA)
-  enable_irsa = true
+  enable_irsa                 = true
   create_cloudwatch_log_group = false
 
   cluster_enabled_log_types = []
@@ -28,16 +28,16 @@ module "eks" {
       desired_size = 2
 
       #____ Sandbox issue fix temp start
-      create_node_security_group = false
+      create_node_security_group    = false
       create_cluster_security_group = false
 
       # 2. Extends timeout parameters for local runtime engine has time to respond
       cluster_timeouts = {
         create = "60m"
         update = "60m"
-          delete = "60m"
-        }
-    # __ Sandbox issue fix temp end
+        delete = "60m"
+      }
+      # __ Sandbox issue fix temp end
 
       # Change to ON_DEMAND for strict production guarantees
       capacity_type = "SPOT"
