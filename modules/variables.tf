@@ -60,6 +60,6 @@ variable "master_password" {
 
 variable "eks_environment_short" {
   type        = string
-  default     = "stag"
+  default     = "dev"
   description = "Staging environment short string for EKS cluster for length limit fix"
 }

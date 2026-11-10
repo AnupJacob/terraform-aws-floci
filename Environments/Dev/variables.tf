@@ -83,3 +83,9 @@ variable "vpc_cidr" {
   default     = "10.0.0.0/16"
   description = "VPC CIDR for EKS"
 }
+
+variable "eks_environment_short" {
+  type        = string
+  default     = "dev"
+  description = "Development environment short string for EKS cluster for length limit fix"
+}
