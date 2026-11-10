@@ -90,3 +90,8 @@ variable "eks_environment_short" {
   default     = "stag"
   description = "Staging environment short string for EKS cluster for length limit fix"
 }
+
+variable "ssh_key" {
+  type        = string
+  description = "SSH Key for RDS and EKS cluster"
+}
