@@ -76,3 +76,39 @@ variable "master_password" {
   type        = string
   description = "master password for RDS cluster"
 }
+variable "vpc_cidr" {
+  type        = string
+  default     = "10.0.1.0/16"
+  description = "VPC CIDR for EKS"
+}
+
+variable "eks_environment_short" {
+  type        = string
+  default     = "stag"
+  description = "Production environment short string for EKS cluster for length limit fix"
+}
+
+variable "ssh_key" {
+  type        = string
+  description = "SSH Key for RDS and EKS cluster"
+}
+
+variable "sts_endpoint" {
+  type        = string
+  description = "STS endpoint for prod"
+}
+
+variable "iam_endpoint" {
+  type        = string
+  description = "IAM endpoint for roles at prod"
+}
+
+variable "eks_endpoint" {
+  type        = string
+  description = "EKS endpoint at prod"
+}
+
+variable "kms_endpoint" {
+  type        = string
+  description = "KMS endpoint at prod"
+}
