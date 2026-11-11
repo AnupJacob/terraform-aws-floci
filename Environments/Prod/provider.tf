@@ -30,6 +30,34 @@ provider "aws" {
     ec2      = var.ec2_endpoint
     ecr      = var.ecr_endpoint
     rds      = var.rds_endpoint
+    sts      = var.ec2_endpoint
+    iam      = var.ec2_endpoint
+    kms      = var.ec2_endpoint
+    eks      = var.ec2_endpoint
+  }
+}
 
+#Kubernetes provider addition
+provider "kubernetes" {
+  host                   = module.prod_infrastructure.eks_cluster_endpoint
+  cluster_ca_certificate = base64decode(module.prod_infrastructure.eks_cluster_certificate_authority_data)
+
+  exec {
+    api_version = "client.authentication.k8s.io/v1beta1"
+    command     = "aws"
+    args        = ["eks", "get-token", "--cluster-name", module.prod_infrastructure.eks_cluster_name]
+  }
+}
+
+provider "helm" {
+  kubernetes {
+    host                   = module.prod_infrastructure.eks_cluster_endpoint
+    cluster_ca_certificate = base64decode(module.prod_infrastructure.eks_cluster_certificate_authority_data)
+
+    exec {
+      api_version = "client.authentication.k8s.io/v1beta1"
+      command     = "aws"
+      args        = ["eks", "get-token", "--cluster-name", module.prod_infrastructure.eks_cluster_name]
+    }
   }
 }

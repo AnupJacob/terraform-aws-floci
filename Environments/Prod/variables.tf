@@ -76,3 +76,19 @@ variable "master_password" {
   type        = string
   description = "master password for RDS cluster"
 }
+variable "vpc_cidr" {
+  type        = string
+  default     = "10.0.1.0/16"
+  description = "VPC CIDR for EKS"
+}
+
+variable "eks_environment_short" {
+  type        = string
+  default     = "stag"
+  description = "Production environment short string for EKS cluster for length limit fix"
+}
+
+variable "ssh_key" {
+  type        = string
+  description = "SSH Key for RDS and EKS cluster"
+}
