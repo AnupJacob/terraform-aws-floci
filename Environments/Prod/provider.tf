@@ -30,10 +30,10 @@ provider "aws" {
     ec2      = var.ec2_endpoint
     ecr      = var.ecr_endpoint
     rds      = var.rds_endpoint
-    sts      = var.ec2_endpoint
-    iam      = var.ec2_endpoint
-    kms      = var.ec2_endpoint
-    eks      = var.ec2_endpoint
+    sts      = var.sts_endpoint
+    iam      = var.iam_endpoint
+    kms      = var.kms_endpoint
+    eks      = var.eks_endpoint
   }
 }
 
