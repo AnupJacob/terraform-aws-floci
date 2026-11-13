@@ -84,7 +84,7 @@ variable "vpc_cidr" {
 
 variable "eks_environment_short" {
   type        = string
-  default     = "stag"
+  default     = "prod"
   description = "Production environment short string for EKS cluster for length limit fix"
 }
 
@@ -111,4 +111,10 @@ variable "eks_endpoint" {
 variable "kms_endpoint" {
   type        = string
   description = "KMS endpoint at prod"
+}
+
+variable "regions" {
+  default     = ["eu-west-1", "eu-west-2"]
+  type        = list(string)
+  description = "Region of Infrastructure"
 }
