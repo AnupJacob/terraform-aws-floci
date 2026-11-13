@@ -90,7 +90,6 @@ variable "eks_environment_short" {
   description = "Development environment short string for EKS cluster for length limit fix"
 }
 
-
 variable "sts_endpoint" {
   type        = string
   description = "STS endpoint for prod"
