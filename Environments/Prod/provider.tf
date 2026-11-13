@@ -37,27 +37,55 @@ provider "aws" {
   }
 }
 
-#Kubernetes provider addition
+#Kubernetes provider addition for eu-west-1
 provider "kubernetes" {
-  host                   = module.prod_infrastructure.eks_cluster_endpoint
-  cluster_ca_certificate = base64decode(module.prod_infrastructure.eks_cluster_certificate_authority_data)
+  host                   = module.prod_infrastructure.eks_cluster_endpoint[var.regions[0]]
+  cluster_ca_certificate = base64decode(module.prod_infrastructure.eks_cluster_certificate_authority_data[var.regions[0]])
 
   exec {
     api_version = "client.authentication.k8s.io/v1beta1"
     command     = "aws"
-    args        = ["eks", "get-token", "--cluster-name", module.prod_infrastructure.eks_cluster_name]
+    args        = ["eks", "get-token", "--cluster-name", module.prod_infrastructure.eks_cluster_name[var.regions[0]]]
   }
 }
 
 provider "helm" {
   kubernetes {
-    host                   = module.prod_infrastructure.eks_cluster_endpoint
-    cluster_ca_certificate = base64decode(module.prod_infrastructure.eks_cluster_certificate_authority_data)
+    host                   = module.prod_infrastructure.eks_cluster_endpoint[var.regions[0]]
+    cluster_ca_certificate = base64decode(module.prod_infrastructure.eks_cluster_certificate_authority_data[var.regions[0]])
 
     exec {
       api_version = "client.authentication.k8s.io/v1beta1"
       command     = "aws"
-      args        = ["eks", "get-token", "--cluster-name", module.prod_infrastructure.eks_cluster_name]
+      args        = ["eks", "get-token", "--cluster-name", module.prod_infrastructure.eks_cluster_name[var.regions[0]]]
+    }
+  }
+}
+
+
+#Kubernetes provider addition for eu-west-2
+provider "kubernetes" {
+  alias                  = "west-2"
+  host                   = module.prod_infrastructure.eks_cluster_endpoint[var.regions[1]]
+  cluster_ca_certificate = base64decode(module.prod_infrastructure.eks_cluster_certificate_authority_data[var.regions[1]])
+
+  exec {
+    api_version = "client.authentication.k8s.io/v1beta1"
+    command     = "aws"
+    args        = ["eks", "get-token", "--cluster-name", module.prod_infrastructure.eks_cluster_name[var.regions[1]]]
+  }
+}
+
+provider "helm" {
+  alias = "west-2"
+  kubernetes {
+    host                   = module.prod_infrastructure.eks_cluster_endpoint[var.regions[1]]
+    cluster_ca_certificate = base64decode(module.prod_infrastructure.eks_cluster_certificate_authority_data[var.regions[1]])
+
+    exec {
+      api_version = "client.authentication.k8s.io/v1beta1"
+      command     = "aws"
+      args        = ["eks", "get-token", "--cluster-name", module.prod_infrastructure.eks_cluster_name[var.regions[1]]]
     }
   }
 }

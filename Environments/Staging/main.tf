@@ -1,13 +1,14 @@
 module "staging_infrastructure" {
-  source          = "../../modules"
-  vpc_cidr        = "10.1.0.0/16"
-  environments    = var.environments
-  instance_count  = var.instance_count
-  bucket_name     = "my-${var.s3_environment}-app-bucket"
-  ssh_key_name    = aws_key_pair.public_key_pair_staging.key_name
-  master_password = var.master_password
-  master_user     = var.master_user
-
+  source                = "../../modules"
+  vpc_cidr              = "10.1.0.0/16"
+  environments          = var.environments
+  regions               = var.regions
+  instance_count        = var.instance_count
+  bucket_name           = "my-${var.s3_environment}-app-bucket"
+  ssh_key_name          = aws_key_pair.public_key_pair_staging.key_name
+  master_password       = var.master_password
+  master_user           = var.master_user
+  eks_environment_short = var.eks_environment_short
 }
 
 resource "aws_s3_bucket" "my_s3_bucket" {

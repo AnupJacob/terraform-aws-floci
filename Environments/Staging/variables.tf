@@ -95,3 +95,29 @@ variable "ssh_key" {
   type        = string
   description = "SSH Key for RDS and EKS cluster"
 }
+
+variable "sts_endpoint" {
+  type        = string
+  description = "STS endpoint for prod"
+}
+
+variable "iam_endpoint" {
+  type        = string
+  description = "IAM endpoint for roles at prod"
+}
+
+variable "eks_endpoint" {
+  type        = string
+  description = "EKS endpoint at prod"
+}
+
+variable "kms_endpoint" {
+  type        = string
+  description = "KMS endpoint at prod"
+}
+
+variable "regions" {
+  default     = ["eu-west-1", "eu-west-2"]
+  type        = list(string)
+  description = "Region of Infrastructure"
+}
