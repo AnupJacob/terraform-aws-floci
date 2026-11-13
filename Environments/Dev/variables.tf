@@ -89,3 +89,24 @@ variable "eks_environment_short" {
   default     = "dev"
   description = "Development environment short string for EKS cluster for length limit fix"
 }
+
+
+variable "sts_endpoint" {
+  type        = string
+  description = "STS endpoint for prod"
+}
+
+variable "iam_endpoint" {
+  type        = string
+  description = "IAM endpoint for roles at prod"
+}
+
+variable "eks_endpoint" {
+  type        = string
+  description = "EKS endpoint at prod"
+}
+
+variable "kms_endpoint" {
+  type        = string
+  description = "KMS endpoint at prod"
+}
