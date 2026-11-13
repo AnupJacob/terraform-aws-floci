@@ -109,3 +109,9 @@ variable "kms_endpoint" {
   type        = string
   description = "KMS endpoint at prod"
 }
+
+variable "regions" {
+  default     = ["eu-west-1", "eu-west-2"]
+  type        = list(string)
+  description = "Region of Infrastructure"
+}
