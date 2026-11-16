@@ -42,7 +42,7 @@ terraform-aws-floci/
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com
+git clone git@github.com:AnupJacob/terraform-aws-floci.git
 cd terraform-aws-floci
 
 # 2. Initialize Terraform & download providers
