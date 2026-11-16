@@ -43,7 +43,7 @@ terraform-aws-floci/
 ```bash
 # 1. Clone the repository
 # Clone via HTTPS
-git clone https://github.com
+git clone https://github.com/AnupJacob/terraform-aws-floci.git
 OR
 # clone via SSH
 git clone git@github.com:AnupJacob/terraform-aws-floci.git
