@@ -19,7 +19,6 @@ variable "instance_count" {
 variable "access_key" {
   type        = string
   description = "Access key variable"
-
 }
 
 variable "secret_key" {
