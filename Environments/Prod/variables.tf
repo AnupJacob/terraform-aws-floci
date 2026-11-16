@@ -76,6 +76,7 @@ variable "master_password" {
   type        = string
   description = "master password for RDS cluster"
 }
+
 variable "vpc_cidr" {
   type        = string
   default     = "10.0.1.0/16"

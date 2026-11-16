@@ -29,6 +29,5 @@ provider "aws" {
     dynamodb = var.dynamodb_endpoint
     ec2      = var.ec2_endpoint
     ecr      = var.ecr_endpoint
-
   }
 }
