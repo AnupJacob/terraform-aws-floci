@@ -34,6 +34,8 @@ resource "aws_key_pair" "app_key_pair_main" {
 
 module "dev_infrastructure" {
   source         = "./modules"
+  master_user = var.master_user
+  master_password = var.master_password
   vpc_cidr       = var.environment_cidrs["dev"]
   environments   = ["dev"]
   instance_count = 2
@@ -45,6 +47,8 @@ module "staging_infrastructure" {
   source         = "./modules"
   vpc_cidr       = var.environment_cidrs["staging"]
   environments   = ["staging"]
+  master_user = var.master_user
+  master_password = var.master_password
   instance_count = 2
   bucket_name    = "staging"
   ssh_key_name   = aws_key_pair.public_key_pair_main.key_name
@@ -52,6 +56,8 @@ module "staging_infrastructure" {
 
 module "prod_infrastructure" {
   source         = "./modules"
+  master_user = var.master_user
+  master_password = var.master_password
   vpc_cidr       = var.environment_cidrs["prod"]
   environments   = ["production"]
   instance_count = 3
@@ -63,6 +69,8 @@ module "prod_infrastructure" {
 module "my_public_instance" {
   source         = "./modules"
   instance_count = var.instance_count
+  master_user = var.master_user
+  master_password = var.master_password
   for_each       = local.env_region_matrix
   ssh_key_name   = aws_key_pair.public_key_pair_main.key_name
 
@@ -76,6 +84,8 @@ module "my_private_instance" {
   source         = "./modules"
   instance_count = var.instance_count
   ssh_key_name   = aws_key_pair.app_key_pair_main.key_name
+  master_user = var.master_user
+  master_password = var.master_password
   for_each       = local.env_region_matrix
 
   environments = [each.value.env]
@@ -87,6 +97,8 @@ module "my_private_instance" {
 module "my_s3_bucket" {
   source         = "./modules"
   instance_count = var.instance_count
+  master_user = var.master_user
+  master_password = var.master_password
   ssh_key_name   = aws_key_pair.public_key_pair_main.key_name
   bucket_name    = "my-s3-bucket-standalone"
   for_each       = local.env_region_matrix

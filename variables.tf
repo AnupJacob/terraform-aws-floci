@@ -64,3 +64,13 @@ variable "ecr_endpoint" {
   type        = string
   description = "ECR endpoint url"
 }
+
+variable "master_user" {
+  type        = string
+  description = "master username for RDS cluster"
+}
+
+variable "master_password" {
+  type        = string
+  description = "master password for RDS cluster"
+}
