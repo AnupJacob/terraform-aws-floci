@@ -2,7 +2,7 @@ terraform {
   cloud {
     organization = "Application_Test"
     workspaces {
-      project = "Development-AWS-Floci"
+      project = "Anups-AWS-Kube-Floci"
       name    = "terraform-aws-floci-development"
     }
   }
